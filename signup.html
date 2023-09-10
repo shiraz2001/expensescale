@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar bg-secondary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <h2 class="text-light">money boy</h2>
+      </a>
+    </div>
+  </nav>
+    <div class="container mt-5">
+    <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="housenumber" placeholder="name@example.com">
+            <label>House Number</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Name" placeholder="name@example.com">
+            <label>Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="password" placeholder="Password">
+            <label>Password</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="signup()">Sign In</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">By clicking Sign in, you agree to the terms of use.</small>
+        </form>
+      </div>
+    </div>
+
+    <script>
+        function signup(){
+        hnumber=housenumber.value;
+        hname=Name.value;
+        pass=password.value;
+        if(hnumber in localStorage){
+            alert("Account Already created")
+        }
+        else if((hnumber==='')&&(hname==='')&&(pass==='')){
+            alert("Enter Something in the Field");
+        }
+        else{
+        const details={
+            HouseNumber:hnumber,
+            Name:hname,
+            Password:pass,
+            balance:0
+        }
+
+        localStorage.setItem(hnumber,JSON.stringify(details));
+        window.location='./home.html';
+        alert("Sign In sucessfull");
+        
+    }
+}
+    </script>
+</body>
+</html>
